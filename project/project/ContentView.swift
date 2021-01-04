@@ -21,7 +21,7 @@ struct ContentView: View {
                     
                     
                             NavigationLink(
-                                destination: page2(d: data(number: 1, type: "13", price: 1.500), type:d.type),
+                                destination: page2(d: data(number:d.number, type:d.type, price:d.price)),
                                 label: {
                                     rent(d: d)
                         
@@ -73,7 +73,7 @@ struct rent: View {
                 Image(d.type)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 40, height:40)
+                    .frame(width:40, height:40)
                     .padding()
             }
             Spacer()

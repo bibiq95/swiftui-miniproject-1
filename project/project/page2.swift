@@ -14,11 +14,14 @@ struct page2: View {
     @State var bic = 0
     @State var total = 0
     var d:data
-    var type : String
+   // var type : String
     var body: some View {
         VStack{
-            Image(type)
-            
+            Image(d.type)
+                .resizable()
+            .scaledToFit()
+            .frame(width: 250, height:250)
+            .padding()
             TextField("الاسم", text:$name)
                 .padding()
             
@@ -44,7 +47,7 @@ struct page2: View {
                 
                 let t = Double(Double(hours) * d.price * Double(bic))
                 Spacer()
-               Text("\(t) K.D.")
+                Text("\(t ,specifier: "%.2f") K.D ")
                     .padding()
                 Text("المبلغ الكلي")
                     .font(.system(size: 30))
@@ -80,7 +83,7 @@ struct page2: View {
         
 struct page2_Previews: PreviewProvider {
     static var previews: some View {
-        page2( d:data(number: 1, type: "", price: 0.0), type: "13")
+        page2( d:data(number: 1, type: "", price: 0.0))
             .previewDevice("iPhone 12")
     }
 }

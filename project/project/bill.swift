@@ -9,7 +9,7 @@ import SwiftUI
 
 struct bill: View {
 @State var buttoncolor: Color = .blue
-@State var buttontxt:String = "تم الدفع"
+@State var btntxt = " ادفع الآن"
    var d : details
     var body: some View {
         VStack{
@@ -54,14 +54,15 @@ struct bill: View {
             
           
             Button(action: {
-                self.buttontxt="تم الدفع"
+                self.btntxt="تم الدفع"
                 self.buttoncolor=Color.green
             }, label: {
-                Text(buttontxt)
-                    .foregroundColor(.white)
+                Text(btntxt)
+               .foregroundColor(.white)
                 .font(.largeTitle)
-               .frame(width: 200, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                .background(Color.green)
+                .padding()
+              .frame(width: 200, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .background(buttoncolor)
                 .cornerRadius(8.0)
                 .padding()
             })
@@ -74,6 +75,6 @@ struct bill: View {
 
 struct bill_Previews: PreviewProvider {
     static var previews: some View {
-        bill( buttontxt:"", d:details(name:"", phone: "", hours: 0, bic: 0, total: 0.0) )
+        bill( d:details(name:"", phone: "", hours: 0, bic: 0, total: 0.0) )
     }
 }
